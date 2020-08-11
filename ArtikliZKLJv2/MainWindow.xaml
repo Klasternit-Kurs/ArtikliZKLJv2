@@ -12,6 +12,21 @@
 			<TextBox Text="{Binding Ucena, UpdateSourceTrigger=PropertyChanged}" FontSize="24"/>
 			<TextBox Text="{Binding Marza, UpdateSourceTrigger=PropertyChanged}" FontSize="24"/>
 		</StackPanel>
-		<DataGrid Name="dg" IsReadOnly="True" FontSize="24" ColumnWidth="*" SelectionChanged="Promena"/>
+		<DataGrid AutoGenerateColumns="False" Name="dg" IsReadOnly="True" FontSize="24" ColumnWidth="*" SelectionChanged="Promena">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Naziv2" Binding="{Binding Naziv}"/>
+				<DataGridTextColumn Header="Ulazna cena2" Binding="{Binding Ucena}"/>
+				<DataGridTemplateColumn Header="Templejt">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<StackPanel>
+								<Button Content="{Binding Naziv}"/>
+								<Button>2</Button>
+							</StackPanel>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+			</DataGrid.Columns>
+		</DataGrid>
 	</DockPanel>
 </Window>
